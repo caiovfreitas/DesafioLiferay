@@ -2,15 +2,44 @@ import React, { Component } from 'react';
 import './Article.css';
 import Dataset from '../../img/Dataset.png';
 import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    Card, CardBody,
   } from 'reactstrap';
+import ApiItem from '../Service/ApiItem';
+import axios from 'axios';
 
 
+const api = {
+    baseUrl: "https://api.github.com",
+    client_id: "a43dc755fe5b04b0291e" ,
+    client_secret: "62782a6a81b9ec243277e2da65f7442d90e7bf88"
+    }
 
 class Article extends Component{
-    render(){
 
+    constructor(){
+        super();
+        this.state = {
+          githubData: []
+        };
+      }
+    
+      componentDidMount() {
+        axios
+          .get(
+            api.baseUrl +
+             "/search/repositories?q=language%3AJava&sort=stars&page=1&client_id" +
+             api.client_id +
+             "&client_secret" +
+             api.client_secret
+        )
+        .then((res) => {
+          console.log("Infos da API", res);
+          this.setState({ githubData: res.data.items });
+        });
+      }
+
+    render(){
+        const { githubData } = this.state;
         return(
             
             <div className='container'>
@@ -21,18 +50,20 @@ class Article extends Component{
                     <p className='subtitle'>Add some repositories by clicking add new repository</p>
                 </div>
 
-    {/*                
+                    
                 <div>
                     <Card>
                         <CardBody>
-                            <CardTitle tag="h5">Card title</CardTitle>
-                            <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
+                        {githubData.map((nome) => (
+                          <div>
+                              <ApiItem item={nome.name}/>
+                          </div>
+                        )
+                        )}
                         </CardBody>
                     </Card>
                 </div>   
-    */}                            
+                              
             </div>
 
         )
