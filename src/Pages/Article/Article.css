@@ -1,0 +1,26 @@
+
+.container {
+    display: flex;
+    min-width: 100%;
+    min-height: 920px;
+    background-color: #E5E5E5;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.titles {
+    font-size: 20px;
+    font-weight: 600;
+}
+.subtitle {
+    font-size: 16px;
+    color: #6B6C7E;
+    font-weight: 400;
+
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+}
