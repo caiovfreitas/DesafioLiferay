@@ -1,11 +1,42 @@
-.body {
+.bodyNR {
     display: flex;
+    flex-direction: column;
     width: 448px;
     height: 212px;
+    padding: 9px 24px 2px 24px;
 }
 
 .title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
-    padding: 9px 289px 176px 24px;
+
+}
+
+.subtitlerep {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4f4f52;
+}
+
+.btnArea {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.cancelBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 32px;
+    margin-right: 7px;
+}
+
+.addBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 32px;
 }

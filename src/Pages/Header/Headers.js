@@ -1,11 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import NewRep from '../NewRep/NewRepository';
 import { AiFillGithub, 
          AiOutlineSearch, 
-         AiOutlinePlus,
          AiOutlineStar,
-         AiFillStar,
          AiFillAppstore
         } from 'react-icons/ai';
 import { CgDarkMode } from 'react-icons/cg'
