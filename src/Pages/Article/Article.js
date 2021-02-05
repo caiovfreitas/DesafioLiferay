@@ -52,11 +52,12 @@ class Article extends Component{
 
                     
                 <div>
-                    <Card>
-                        <CardBody>
+                    <Card >
+                        <CardBody className='card'>
                         {githubData.map((nome) => (
                           <div>
-                              <ApiItem item={nome.name}/>
+                              Nome:<ApiItem item={nome.name}/>
+                              Forks:<ApiItem item={nome.forks}/>
                           </div>
                         )
                         )}

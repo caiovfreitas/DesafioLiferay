@@ -4,6 +4,19 @@ import { Form, FormGroup, Label, Input,
          Button } from 'reactstrap';
          
 class NewRep extends Component{
+    constructor(){
+        super();
+        this.state = {
+            repoName: ""
+        };
+        this.onChange = (e) => {
+            this.setState({repoName: e.target.value});
+        };
+        this.onSubmit = (evento) => {
+            evento.preventDefault();
+            console.log(this.state.repoName)
+        }
+    }
 
     render(){
 
@@ -13,12 +26,17 @@ class NewRep extends Component{
                 <Form>
                     <FormGroup>
                         <Label className='subtitlerep'>Repository</Label>
-                        <Input bsSize="sm"/>
+                        <Input name='repoName' 
+                               type='text' 
+                               bsSize="sm" 
+                               value={this.state.repoName}
+                               onChange={this.onChange}
+                               />
                     </FormGroup>
                 </Form>
                 <div className='btnArea'>
                     <Button outline color="secondary" className='cancelBtn' >Cancel</Button>{' '}
-                    <Button color="primary" className='addBtn'>Add</Button>{' '}
+                    <Button color="primary" className='addBtn' onClick={this.onSubmit} >Add</Button>{' '}
                 </div>
             </div>
         )
